@@ -1,0 +1,232 @@
+<mxfile host="65bd71144e">
+    <diagram id="o9Digci-Zx3RwBHt6j3B" name="Page-1">
+        <mxGraphModel dx="1131" dy="825" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Person" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="40" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Browser" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Server&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="120" y="960" as="sourcePoint"/>
+                        <mxPoint x="122.5" y="120" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="122.5" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="960" as="sourcePoint"/>
+                        <mxPoint x="360" y="120" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="360" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="680" y="960" as="sourcePoint"/>
+                        <mxPoint x="680" y="120" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="680" y="170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="130" y="160" as="sourcePoint"/>
+                        <mxPoint x="350" y="160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="170" as="sourcePoint"/>
+                        <mxPoint x="680" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 9px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;word-break: break-all; display: flex; align-items: center; gap: 2px; font-size: 9px;&quot; class=&quot;header-value&quot;&gt;https://studies.cs.helsinki.fi/exampleapp/notes&lt;/div&gt;&lt;div style=&quot;font-size: 9px;&quot;&gt;&lt;br style=&quot;font-size: 9px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 9px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="173" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;Request Method&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; background-color: rgb(38, 38, 39);&quot;&gt;GET&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="330" y="173" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="680" y="240" as="sourcePoint"/>
+                        <mxPoint x="360" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="Response :" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="240" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="HTML -&amp;nbsp; Code" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="240" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/exampleapp/main.css&quot; /&amp;gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="280" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="170" as="sourcePoint"/>
+                        <mxPoint x="680" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; font-size: 10px;&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;word-break: break-all; display: flex; align-items: center; gap: 2px; font-size: 10px;&quot; class=&quot;header-value&quot;&gt;https://studies.cs.helsinki.fi/exampleapp/spa&lt;/div&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; font-size: 10px;&quot; class=&quot;row&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="173" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;Request Method&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; background-color: rgb(38, 38, 39);&quot;&gt;GET&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="379" y="310" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="endArrow=classic;html=1;fontSize=9;exitX=0.147;exitY=0.033;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="18">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="310" as="sourcePoint"/>
+                        <mxPoint x="680" y="310" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;https://studies.cs.helsinki.fi/exampleapp/main.css&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="313" width="221" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="680" y="380" as="sourcePoint"/>
+                        <mxPoint x="360" y="380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/exampleapp/main.css&quot; /&amp;gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="410" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="Response :" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="380" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="main.css-&amp;nbsp; Code" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="380" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="379" as="sourcePoint"/>
+                        <mxPoint x="360" y="409" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="359.5" y="240" as="sourcePoint"/>
+                        <mxPoint x="360" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" value="&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;Request Method&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; background-color: rgb(38, 38, 39);&quot;&gt;GET&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="379" y="437" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="endArrow=classic;html=1;fontSize=9;exitX=0.147;exitY=0.033;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="27">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="437" as="sourcePoint"/>
+                        <mxPoint x="680" y="437" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" value="&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; font-size: 10px;&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;https://studies.cs.helsinki.fi/exampleapp/spa.js&lt;/span&gt;&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; font-size: 10px;&quot; class=&quot;row&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="491" y="440" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="681" y="500" as="sourcePoint"/>
+                        <mxPoint x="361" y="500" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="Response :" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="500" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="spa.js-&amp;nbsp; Code" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="500" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="&lt;div&gt;xhttp.open(&quot;GET&quot;, &quot;/exampleapp/data.json&quot;, true)&lt;/div&gt;&lt;div&gt;xhttp.send()&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="531" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="360" y="500" as="sourcePoint"/>
+                        <mxPoint x="360" y="530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;Request Method&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; background-color: rgb(38, 38, 39);&quot;&gt;GET&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="379" y="558" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="" style="endArrow=classic;html=1;fontSize=9;exitX=0.147;exitY=0.033;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="35">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="410" y="558" as="sourcePoint"/>
+                        <mxPoint x="680" y="558" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; font-size: 9px;&quot; class=&quot;row&quot;&gt;&lt;div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; font-size: 8px;&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;word-break: break-all; display: flex; align-items: center; gap: 2px;&quot; class=&quot;header-value&quot;&gt;https://studies.cs.helsinki.fi/exampleapp/data.json&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; font-size: 12px;&quot; class=&quot;row&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; font-size: 12px;&quot; class=&quot;row&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 10px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="491" y="561" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="680" y="620" as="sourcePoint"/>
+                        <mxPoint x="360" y="620" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="Response :" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;rotation=0;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="620" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="data.json" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="620" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Show all notes in data.json" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="720" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="" style="endArrow=classic;html=1;fontSize=8;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="41">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="240" y="670" as="sourcePoint"/>
+                        <mxPoint x="130" y="750" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="43" value="" style="endArrow=classic;html=1;fontSize=8;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="120" y="870" as="sourcePoint"/>
+                        <mxPoint x="300" y="870" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="type a new note ---&amp;gt; click save" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="870" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="" style="endArrow=classic;html=1;fontSize=8;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="470" y="860" as="sourcePoint"/>
+                        <mxPoint x="670" y="860" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="47" value="&lt;br style=&quot;&quot;&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;Request Method&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; text-transform: capitalize; background-color: rgb(38, 38, 39);&quot;&gt;:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(228, 226, 227); font-family: system-ui, sans-serif; text-align: start; background-color: rgb(38, 38, 39);&quot;&gt;POST&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="870" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 9px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 9px;&quot;&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; font-size: 9px;&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 9px;&quot;&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; font-size: 9px;&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;font-size: 9px;&quot;&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; margin-top: 2px; font-size: 9px;&quot; class=&quot;row&quot;&gt;&lt;div style=&quot;word-break: break-all; display: flex; align-items: center; gap: 2px; font-size: 9px;&quot; class=&quot;header-value&quot;&gt;https://studies.cs.helsinki.fi/exampleapp/new_note_spa&lt;/div&gt;&lt;div style=&quot;font-size: 9px;&quot;&gt;&lt;br style=&quot;font-size: 9px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; font-size: 9px;&quot; class=&quot;row&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; font-size: 9px;&quot; class=&quot;row&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; font-size: 9px;&quot; class=&quot;row&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;display: flex; line-height: 20px; padding-left: 8px; gap: 12px; user-select: text; color: rgb(228, 226, 227); font-family: system-ui, sans-serif; font-size: 9px; text-align: start; background-color: rgb(38, 38, 39);&quot; class=&quot;row&quot;&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="870" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="740" y="870" as="sourcePoint"/>
+                        <mxPoint x="740" y="750" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="51" value="" style="endArrow=classic;html=1;fontSize=9;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="735.5" y="750" as="sourcePoint"/>
+                        <mxPoint x="414.5" y="749.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" value="abre la url :&amp;nbsp;https://studies.cs.helsinki.fi/exampleapp/spa" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="130" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="&lt;div&gt;&lt;div&gt;&amp;nbsp; xhttpForPost.open(&quot;POST&quot;, '/exampleapp/new_note_spa', true)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="855" width="160" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
