@@ -52,9 +52,9 @@ const App = (props)=>{
       <Header course={course}/>
       <Content parts={course.parts} />
       <Total parts={course.parts}/>
-      <Button onClick={increaseByOne} text='PLus' />
-      <Button onClick={zero} text='Zero' />
-      <Button onClick={decreaseByOne} text='minus' />
+      <Button OnClick={increaseByOne} text='PLus' />
+      <Button OnClick={zero} text='Zero' />
+      <Button OnClick={decreaseByOne} text='minus' />
       <Display  counter={counter}/>
   </div>
   )
