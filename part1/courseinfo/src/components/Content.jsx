@@ -10,9 +10,6 @@ const Content = (props)=>{
    
    
     
-  
-
-    
     return(
 
         <>

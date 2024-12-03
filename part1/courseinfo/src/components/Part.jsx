@@ -11,4 +11,3 @@ const Part = (props)=>{
 
 export default Part
 
-//<p>{props.part} {props.exercises}</p>

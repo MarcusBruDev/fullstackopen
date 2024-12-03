@@ -8,7 +8,6 @@ const Course = (props)=>{
     return(
         <>
             <Content parts={props.course} />
-            
         </>
     )
 }
