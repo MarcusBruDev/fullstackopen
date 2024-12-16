@@ -7,12 +7,8 @@ import { use } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
+import personsRequest from './services/persons'
 
-
-/*{ name: 'Arto Hellas', number: '040-123456', id: 1 },
-{ name: 'Ada Lovelace', number: '39-44-5323523', id: 2 },
-{ name: 'Dan Abramov', number: '12-43-234345', id: 3 },
-{ name: 'Mary Poppendieck', number: '39-23-6423122', id: 4 }*/
 
 const App = ()=>{
 
@@ -23,15 +19,18 @@ const App = ()=>{
   const[nameToSearch, setNameToSearch] = useState("")
 
   const hook = ()=>{
-      axios
-      .get('http://localhost:3001/persons')
-      .then(response=>{
-        setPersons(response.data)
+      personsRequest
+      .getAll()
+      .then(initialPersons=>{
+        setPersons(initialPersons)
       })
  
   }
 
   useEffect(hook,[]);
+
+
+
 
 
 
@@ -43,10 +42,35 @@ const App = ()=>{
 
   const addName=(event)=>{
     event.preventDefault()
-    const objName = {name:newName,number:newPhoneNumber, id: persons.length + 1}
+    const objName = {name:newName,number:newPhoneNumber}
     console.log(objName)
-    names.includes(newName) ? alert( `${newName} is already addded to phonebook`) :  setPersons(persons.concat(objName))
-    
+
+
+    persons.map(person =>{
+    if(person.name === newName && newPhoneNumber !== person.number){
+        if(window.confirm(`${newName} is already addded to phonebook, remplace  the old  number with a new one`)){
+          console.log("Si cambiar")
+          personsRequest
+          .update(person.id,objName)
+          .then(personUptade=> setPersons(persons.map(p=> p.id !== person.id ? p : personUptade ) ))
+
+        }
+      }if(person.name === newName && newPhoneNumber === person.number){
+        alert( `${newName} is already addded to phonebook`)
+      }
+    })
+
+
+    if(!names.includes(newName)){
+      personsRequest
+      .create(objName)
+      .then(returnedData=>{
+        setPersons(persons.concat(returnedData))
+      })
+    }
+
+
+
     setNewName("")
     setNewPhoneNumber("")
 
@@ -66,6 +90,16 @@ const App = ()=>{
 
   const personToShow= nameToSearch ? persons.filter(person => person.name.toLocaleLowerCase().includes(nameToSearch.toLocaleLowerCase())) : persons
 
+  const deletePersons=(id,name)=>{
+    if(window.confirm(`Delete ${name}`)){
+      console.log(id)
+      personsRequest
+      .deleted(id)
+      .then(personDeleted=> setPersons(persons.filter(person=> person.id !== id)))
+    }
+  
+  }
+
   return(
     <div>
       <h2>Phonebook</h2>
@@ -79,7 +113,7 @@ const App = ()=>{
 
         <h2>Numbers</h2>
 
-        <Persons personToShow={personToShow}/>
+        <Persons personToShow={personToShow} deletePersons={deletePersons} />
       
      </div>
   )
