@@ -6,7 +6,7 @@ const Display = ({countrieToShow,clima})=>{
  
    
     if(countrieToShow.length==1){
-        console.log(clima)
+        
         const temp =  clima ?  clima.main.temp : null
         const wind =  clima ?  clima.wind.speed   : null
         const icon =  clima ?  clima.weather[0].icon  : null
