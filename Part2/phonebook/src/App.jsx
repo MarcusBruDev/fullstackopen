@@ -8,7 +8,7 @@ import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 import personsRequest from './services/persons'
-
+import Notificacion from './components/Notificacion'
 
 const App = ()=>{
 
@@ -17,6 +17,9 @@ const App = ()=>{
   const[newName,setNewName]= useState('')
   const[newPhoneNumber, setNewPhoneNumber]= useState("")
   const[nameToSearch, setNameToSearch] = useState("")
+  const[messageAddsuccessful, setMessageAddsuccessful]=useState(null)
+  const[messageAddError, setMessageAddError]=useState(null)
+
 
   const hook = ()=>{
       personsRequest
@@ -53,6 +56,11 @@ const App = ()=>{
           personsRequest
           .update(person.id,objName)
           .then(personUptade=> setPersons(persons.map(p=> p.id !== person.id ? p : personUptade ) ))
+          .catch(error=>{
+              console.log('error!')
+              setMessageAddError(`Information of ${person.name} has already been removed from server ` )
+              setTimeout(()=>{setMessageAddError(null)},3000)
+          })
 
         }
       }if(person.name === newName && newPhoneNumber === person.number){
@@ -65,12 +73,13 @@ const App = ()=>{
       personsRequest
       .create(objName)
       .then(returnedData=>{
+        setMessageAddsuccessful(` Added ${returnedData.name}`)
         setPersons(persons.concat(returnedData))
       })
     }
 
-
-
+    
+    setTimeout(()=>{setMessageAddsuccessful(null)},3000)
     setNewName("")
     setNewPhoneNumber("")
 
@@ -96,6 +105,10 @@ const App = ()=>{
       personsRequest
       .deleted(id)
       .then(personDeleted=> setPersons(persons.filter(person=> person.id !== id)))
+      .catch(error=>{
+        setMessageAddError(`Information of ${name} has already been removed from server ` )
+        setTimeout(()=>{setMessageAddError(null)},3000)
+      })
     }
   
   }
@@ -103,6 +116,8 @@ const App = ()=>{
   return(
     <div>
       <h2>Phonebook</h2>
+
+        <Notificacion messageAddsuccessful={messageAddsuccessful} messageAddError={messageAddError}/>
 
         <Filter  nameToSearch={nameToSearch}  handlenameToSearch={handlenameToSearch} />
       
