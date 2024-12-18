@@ -17,11 +17,16 @@ function App() {
   const countrieToShow =  searchedCity ? countriesState.filter((element)=>element.name.common.toLocaleLowerCase().includes(searchedCity.toLocaleLowerCase())) : []
 
   const hook = ()=>{
-    countries
-    .getAll()
-    .then(response=>{
-      setcountriesState(response)
-    })
+
+    if(!countriesState){
+      
+      countries
+      .getAll()
+      .then(response=>{
+        setcountriesState(response)
+      })
+    }
+ 
 
     if(countrieToShow.length===1){
       climate
