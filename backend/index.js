@@ -22,6 +22,7 @@ let notes = [
 ]
 
 
+
 const generateId = ()=>{
   const maxId = notes.length > 0 ? Math.max(...notes.map(note=> note.id)) : 0
   return maxId +1;
@@ -61,11 +62,8 @@ app.delete('/api/notes/:id',(request,response)=>{
 
 app.post('/api/notes',(request,response)=>{
 
-
-  
       let body= request.body
 
-      
       if(!body.content){
         return response.status(404).json({error:'Content missing'})
       }
