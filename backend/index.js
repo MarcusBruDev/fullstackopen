@@ -1,6 +1,8 @@
 const express = require('express')
+const cors= require('cors')
 const app  = express()
 
+app.use(cors())
 app.use(express.json())
 
 let notes = [
@@ -68,6 +70,8 @@ app.post('/api/notes',(request,response)=>{
         return response.status(404).json({error:'Content missing'})
       }
 
+
+
       const note ={
         content: body.content,
         important: Boolean(body.important) || false,
@@ -81,7 +85,7 @@ app.post('/api/notes',(request,response)=>{
 })
 
 
-const PORT= 3001
+const PORT=  process.env.PORT || 3001
 app.listen(PORT,()=>{
   console.log(`Server running on port ${PORT}`)
 })
