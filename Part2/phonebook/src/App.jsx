@@ -37,44 +37,53 @@ const App = ()=>{
 
 
 
-
+  //Names of the persons in the phonebook
   let names= persons.map((element)=> element.name)
   
-  
-
-
+  // function to add a new name to the phonebook
   const addName=(event)=>{
+    //prevent the default action of the form
     event.preventDefault()
+    // object with the name and the number of the person new
     const objName = {name:newName,number:newPhoneNumber}
-    console.log(objName)
+    //console.log(objName)
 
-
+    //check if the name is already in the phonebook
     persons.map(person =>{
-    if(person.name === newName && newPhoneNumber !== person.number){
-        if(window.confirm(`${newName} is already addded to phonebook, remplace  the old  number with a new one`)){
-          console.log("Si cambiar")
-          personsRequest
-          .update(person.id,objName)
-          .then(personUptade=> setPersons(persons.map(p=> p.id !== person.id ? p : personUptade ) ))
-          .catch(error=>{
-              console.log('error!')
-              setMessageAddError(`Information of ${person.name} has already been removed from server ` )
-              setTimeout(()=>{setMessageAddError(null)},3000)
-          })
+      //if the name is already in the phonebook and the number is different, allow the user to change the number
+      if(person.name === newName && newPhoneNumber !== person.number){
+          // confirm if the user wants to change the number
+          if(window.confirm(`${newName} is already addded to phonebook, remplace  the old  number with a new one`)){
+            // personsRequest is a object with the methods to make the request to the server
+            personsRequest
+            //update the number of the person
+            .update(person.id,objName)
+            // control the response of the server
+            // modify the state of the persons
+            .then(personUptade=> setPersons(persons.map(p=> p.id !== person.id ? p : personUptade ) ))
+            //controlle the error of the server
+            .catch(error=>{
+                console.log('error!')
+                setMessageAddError(`Information of ${person.name} has already been removed from server ` )
+                setTimeout(()=>{setMessageAddError(null)},3000)
+            })
 
+          }
+          //if the user name and phone number are the same, alert the user, the name is already in the phonebook
+        }if(person.name === newName && newPhoneNumber === person.number){
+          alert( `${newName} is already addded to phonebook`)
         }
-      }if(person.name === newName && newPhoneNumber === person.number){
-        alert( `${newName} is already addded to phonebook`)
-      }
     })
 
-
+    // si el nombre no esta en el phonebook, añadirlo
     if(!names.includes(newName)){
+      console.log(objName)
       personsRequest
       .create(objName)
-      .then(returnedData=>{
-        setMessageAddsuccessful(` Added ${returnedData.name}`)
-        setPersons(persons.concat(returnedData))
+      .then(objName=>{
+        console.log(objName[objName.length - 1].name)
+        setMessageAddsuccessful(` Added ${objName[objName.length - 1].name}`)
+        setPersons(persons.concat(objName[objName.length - 1]))
       })
     }
 

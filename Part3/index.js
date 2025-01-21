@@ -1,8 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors= require('cors')
 const app = express();
 
-
+app.use(cors())
 app.use(express.json());
 morgan.token('body',(request,response)=>JSON.stringify(request.body));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms - :body '));
@@ -32,10 +33,13 @@ let persons = [
 ]
 
 
-function generateId(max){
-    return Math.random() * max
-  }
-
+const generateId = ()=>{
+    console.log("Destro de generar id")
+    const maxId = persons.length > 0 ? Math.max(...persons.map(person=> person.id)) : 0
+    return maxId +1;
+  
+}
+  
 
 app.get('/', (req, res) =>{
     res.send('Hello World');
@@ -103,7 +107,7 @@ app.post('/api/persons',(request,response)=>{
         const person ={
             name: body.name,
             number: body.number,
-            id: generateId(1000000)
+            id: generateId()
         }
 
         
@@ -113,7 +117,9 @@ app.post('/api/persons',(request,response)=>{
 
 
 
-const PORT = 3001;
+
+
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {    
     console.log(`Server is running on port ${PORT}`);
 });

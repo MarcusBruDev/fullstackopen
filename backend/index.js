@@ -6,6 +6,8 @@ app.use(cors())
 app.use(express.static('dist'))
 app.use(express.json())
 //notas
+
+
 let notes = [
     {
       id: 1,
