@@ -1,7 +1,17 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors= require('cors')
+const mongoose = require('mongoose')
 const app = express();
+
+
+if(process.argv.length<3){
+    console.log('Please provide the password as an argument')
+    process.exit(1)
+}
+
+
+
 
 app.use(cors())
 app.use(express.static('dist'));
@@ -9,6 +19,23 @@ app.use(express.json());
 morgan.token('body',(request,response)=>JSON.stringify(request.body));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms - :body '));
 
+
+const password = process.argv[2]
+
+const url=  `mongodb+srv://marcusbrudev:${password}@cluster0.0pdmn.mongodb.net/phonebookApp?retryWrites=true&w=majority&appName=Cluster0`
+
+
+
+mongoose.set('strictQuery', false);
+
+mongoose.connect(url);
+
+const personSchema= new mongoose.Schema({
+      name: String,
+      number: String
+});
+
+const Person = mongoose.model('Person', personSchema);
 
 let persons = [
     {
