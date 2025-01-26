@@ -1,14 +1,10 @@
+require('dotenv').config()  
 const express = require('express');
 const morgan = require('morgan');
 const cors= require('cors')
-const mongoose = require('mongoose')
+const Phonebook = require('./models/phone')
 const app = express();
 
-
-if(process.argv.length<3){
-    console.log('Please provide the password as an argument')
-    process.exit(1)
-}
 
 
 
@@ -20,22 +16,10 @@ morgan.token('body',(request,response)=>JSON.stringify(request.body));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms - :body '));
 
 
-const password = process.argv[2]
-
-const url=  `mongodb+srv://marcusbrudev:${password}@cluster0.0pdmn.mongodb.net/phonebookApp?retryWrites=true&w=majority&appName=Cluster0`
 
 
 
-mongoose.set('strictQuery', false);
 
-mongoose.connect(url);
-
-const personSchema= new mongoose.Schema({
-      name: String,
-      number: String
-});
-
-const Person = mongoose.model('Person', personSchema);
 
 let persons = [
     {
@@ -75,7 +59,9 @@ app.get('/', (req, res) =>{
 
 
 app.get('/api/persons',(request,response)=>{
-    response.json(persons)
+    Phonebook.find({}).then(person=>{
+        response.json(person)
+    })
 })
 
 
@@ -87,13 +73,17 @@ app.get('/info',(request,response)=>{
 
 app.get('/api/persons/:id',(request,response)=>{
         let id = Number(request.params.id)
-        let person = persons.find(person => person.id == id)
+        //let person = persons.find(person => person.id == id)
 
-        if(person){
+        Phonebook.findById(request.params.id).then(person=>{
+            response.json(person)
+        })
+
+       /* if(person){
             response.json(person)
         }else{
             response.status(404).end()
-        }
+        }*/
     
 })
 
@@ -132,22 +122,23 @@ app.post('/api/persons',(request,response)=>{
             })
         }
 
-        const person ={
+        const person= new Phonebook({
             name: body.name,
-            number: body.number,
-            id: generateId()
-        }
+            number: body.number
+        })
 
+        person.save().then(savedPerson=>{
+            response.json(savedPerson)
+        })
         
-        persons = persons.concat(person)
-        response.json(persons)
+    
 })
 
 
 
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT 
 app.listen(PORT, () => {    
     console.log(`Server is running on port ${PORT}`);
 });

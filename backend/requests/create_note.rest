@@ -2,7 +2,7 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "Postman is good in testing backend",
+    "content": "Soy una nota de prueba",
     "important": true,
     "id":4
 }

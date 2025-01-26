@@ -54,21 +54,28 @@ app.get('/api/notes', (request,response)=>{
 
 app.get('/api/notes/:id',(request,response)=>{
     let id= Number(request.params.id);
-    let note = notes.find(note=>note.id === id)
+    //let note = notes.find(note=>note.id === id)
+    Note.findById(request.params.id).then(note=>{
+      response.json(note)
+    })
 
-    if(note){
+    /*if(note){
       response.json(note)
     }else{
       response.status(404).end()
-    }
+    }**/
     
 })
 
 app.delete('/api/notes/:id',(request,response)=>{
     let id = Number(request.params.id);
-    notes = notes.filter(note=> note.id !== id)
+    //notes = notes.filter(note=> note.id !== id)
 
-    response.status(204).end()
+    Note.findById(id).then(result=>{
+      response.json(result)
+    })
+
+    //response.status(204).end()
 })
 
 
@@ -82,16 +89,19 @@ app.post('/api/notes',(request,response)=>{
 
 
 
-      const note ={
-        content: body.content,
-        important: Boolean(body.important) || false,
-        id: generateId(),
-      }
 
+
+      const note = new Note({
+        content: body.content,
+        important: body.important || false,
+      })
+
+      note.save().then(savedNote=>{
+        response.json(savedNote)
+      })
       
   
-      notes = notes.concat(note)
-      response.json(note)
+      
 })
 
 
