@@ -26,6 +26,7 @@ const App = ()=>{
       .getAll()
       .then(initialPersons=>{
         setPersons(initialPersons)
+        
       })
  
   }
@@ -33,7 +34,7 @@ const App = ()=>{
   useEffect(hook,[]);
 
 
-
+ 
 
 
 
@@ -55,6 +56,7 @@ const App = ()=>{
           // confirm if the user wants to change the number
           if(window.confirm(`${newName} is already addded to phonebook, remplace  the old  number with a new one`)){
             // personsRequest is a object with the methods to make the request to the server
+            console.log(typeof person.id)
             personsRequest
             //update the number of the person
             .update(person.id,objName)
@@ -75,19 +77,22 @@ const App = ()=>{
         }
     })
 
+
     // si el nombre no esta en el phonebook, añadirlo
     if(!names.includes(newName)){
-      console.log(objName)
+      
       personsRequest
       .create(objName)
       .then(objName=>{
-        console.log(objName[objName.length - 1].name)
-        setMessageAddsuccessful(` Added ${objName[objName.length - 1].name}`)
-        setPersons(persons.concat(objName[objName.length - 1]))
+        //console.log('Hello')
+        //console.log(objName[objName.length - 1])
+        console.log(objName.name)
+        setMessageAddsuccessful(` Added ${objName.name}`)
+        setPersons(persons.concat(objName))
       })
     }
 
-    
+   
     setTimeout(()=>{setMessageAddsuccessful(null)},3000)
     setNewName("")
     setNewPhoneNumber("")
@@ -110,7 +115,7 @@ const App = ()=>{
 
   const deletePersons=(id,name)=>{
     if(window.confirm(`Delete ${name}`)){
-      console.log(id)
+      console.log('Hello')
       personsRequest
       .deleted(id)
       .then(personDeleted=> setPersons(persons.filter(person=> person.id !== id)))
