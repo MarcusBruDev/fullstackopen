@@ -7,8 +7,6 @@ const app = express();
 
 
 
-
-
 app.use(cors())
 app.use(express.static('dist'));
 app.use(express.json());
@@ -17,47 +15,18 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms - 
 
 
 
-
-
-
-
-let persons = [
-    {
-        "id": 1,
-        "name": "Arto Hellas",
-        "number": "040-123456"
-    },
-    {
-        "id": 2,
-        "name": "Ada Lovelace",
-        "number": "39-44-5323523"
-    },
-    {
-        "id": 3,
-        "name": "Dan Abramov",
-        "number": "12-43-234345"
-    },
-    {
-        "id": 4,
-        "name": "Mary Poppendieck",
-        "number": "39-23-6423122"
-    }
-]
-
-
-const generateId = ()=>{
-    console.log("Destro de generar id")
-    const maxId = persons.length > 0 ? Math.max(...persons.map(person=> person.id)) : 0
-    return maxId +1;
-  
-}
-
 const errorHandler=(error, request,response,next)=>{
-    console.error(error.message);
+    
+    
 
     if(error.name === 'CastError'){
         return response.status(400).send({error: 'malformatted id'})
+    }else if(error.name==='ValidationError'){
+        return response.status(400).json({error:error.message}) 
     }
+
+    
+  
 
     next(error)
 }
@@ -77,7 +46,8 @@ app.get('/api/persons',(request,response)=>{
 
 app.get('/info',(request,response)=>{
     const date= new Date()
-    Phonebook.find({}).then(person=>{
+    Phonebook.find({})
+    .then(person=>{
         response.send(`<p>Phonebook has info for ${person.length} people <br><br>  ${date}</p>`)
     })
     
@@ -86,27 +56,17 @@ app.get('/info',(request,response)=>{
 
 app.get('/api/persons/:id',(request,response)=>{
         let id = Number(request.params.id)
-        //let person = persons.find(person => person.id == id)
 
-        Phonebook.findById(request.params.id).then(person=>{
+        Phonebook.findById(request.params.id)
+        .then(person=>{
+            console.log(person.name)
             response.json(person)
         })
-
-       /* if(person){
-            response.json(person)
-        }else{
-            response.status(404).end()
-        }*/
-    
 })
 
 
 app.delete('/api/persons/:id',(request,response)=>{
 
-
-    //let id = Number(request.params.id)
-    //persons = persons.filter(person => person.id !== id)
-    //response.status(204).end()
 
     Phonebook.findByIdAndDelete(request.params.id)
     .then(result=>{
@@ -119,18 +79,10 @@ app.delete('/api/persons/:id',(request,response)=>{
 
 
 
-app.post('/api/persons',(request,response)=>{
+app.post('/api/persons',(request,response,next)=>{
         const body = request.body
 
-        persons.forEach(person => {
-            if(person.name === body.name){
-                return response.status(400).json({
-                    error: 'name must be unique'
-                })
-            }
-        })
-
-
+    
 
         if(!body.name){
             return response.status(400).json({
@@ -150,26 +102,32 @@ app.post('/api/persons',(request,response)=>{
             number: body.number
         })
 
-        person.save().then(savedPerson=>{
+        person.save()
+        .then(savedPerson=>{
             response.json(savedPerson)
         })
+        .catch(error=>{
+            next(error)     
+        })
+      
         
     
 })
 
 
-app.put('/api/persons/:id',(request,response)=>{
+app.put('/api/persons/:id',(request,response,next)=>{
 
-    const body= request.body
-    console.log("aqui")
 
-    const person={
-        name:body.name,
-        number:body.number 
-    }
+    const actualizacion =request.body
 
-    Phonebook.findByIdAndUpdate(request.params.id,person,{new:true})
+
+    Phonebook.findByIdAndUpdate(
+        request.params.id,
+        actualizacion,
+        {new:true,runValidators:true}
+    )
     .then(updatePerson=>{
+        console.log(updatePerson)
         response.json(updatePerson)
     })
     .catch(error=>{
