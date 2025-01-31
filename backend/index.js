@@ -7,7 +7,7 @@ const app  = express()
 app.use(cors())
 app.use(express.static('dist'))
 app.use(express.json())
-//notas
+
 
 
 
@@ -110,7 +110,6 @@ app.post('/api/notes',(request,response,next)=>{
       if(!body.content){
         return response.status(404).json({error:'Content missing'})
       }
-
 
 
 

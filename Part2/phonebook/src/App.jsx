@@ -26,7 +26,6 @@ const App = ()=>{
       .getAll()
       .then(initialPersons=>{
         setPersons(initialPersons)
-        
       })
  
   }
@@ -56,7 +55,7 @@ const App = ()=>{
           // confirm if the user wants to change the number
           if(window.confirm(`${newName} is already addded to phonebook, remplace  the old  number with a new one`)){
             // personsRequest is a object with the methods to make the request to the server
-            console.log(typeof person.id)
+            console.log(person.id)
             personsRequest
             //update the number of the person
             .update(person.id,objName)
@@ -66,7 +65,7 @@ const App = ()=>{
             //controlle the error of the server
             .catch(error=>{
                 console.log('error!')
-                setMessageAddError(`Information of ${person.name} has already been removed from server ` )
+                setMessageAddError(error.response.data.error)
                 setTimeout(()=>{setMessageAddError(null)},3000)
             })
 
@@ -89,6 +88,11 @@ const App = ()=>{
         console.log(objName.name)
         setMessageAddsuccessful(` Added ${objName.name}`)
         setPersons(persons.concat(objName))
+      })
+      .catch(error=>{
+        console.log(error.response.data.error)
+        setMessageAddError(error.response.data.error)
+        setTimeout(()=>{setMessageAddError(null)},3000)
       })
     }
 
