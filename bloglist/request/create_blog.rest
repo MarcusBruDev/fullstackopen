@@ -1,6 +1,6 @@
 POST http://localhost:3001/api/blogs
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1hcmN1cyIsImlkIjoiNjdiZDBkNzExMjQxMDk5ZjQyNmM1N2ZiIiwiaWF0IjoxNzQwOTU4MTk5fQ.MbaoJTVLfHcQhG1a_wi5tG1nDX_CvQpcbrSpeP8iuHc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1hcmN1cyIsImlkIjoiNjdkOWY4MWE0YjlhYmM1YjA4MTcxNTYwIiwiaWF0IjoxNzQyMzM4MTQ2fQ.WbVFbRcuIGCfZCjzlC76Y2IFtyzorUmRZM3B3OV-cyY
 
 //Marcela//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1hcmNlbGEiLCJpZCI6IjY3YjkxZGM5MjNmMTI1ODc0NmJjM2U3OSIsImlhdCI6MTc0MDQyMzg3Mn0.qUJuiGFCPvATZnktNNEbYIECzAcOwI3Frg5EzR_hQ-4
 
@@ -8,7 +8,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1hc
     "title": "Soy el mejor programador del mundo mundial",  
     "author": "Marcus Bru Diaz",
     "url": "www.prueba.com",
-    "likes": 5
+    "likes": 5,
+    "user": "67d9f81a4b9abc5b08171560"
     
 }
 

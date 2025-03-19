@@ -94,7 +94,8 @@ blogListRouter.delete('/:id',middleware.userExtractor,async (request,response)=>
     let idTodelete = request.params.id
 
     let result= await Bloglist.findById(idTodelete) 
-   
+    
+
     const user= request.user
 
 
