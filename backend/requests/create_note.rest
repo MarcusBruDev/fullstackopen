@@ -1,9 +1,11 @@
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Ik1hdGlhcyIsImlkIjoiNjdiNzcxOWYyMTJkZGU1OWMyOTUxMzM0IiwiaWF0IjoxNzQwMTc4NjUxfQ.JcqbYmmFCArl40KQS3IxAkuQUEeijBxME_LVmDp13Qc
 
 {
-    "content": "Soy una nota de prueba",
+    "content": "Soy desarrollador fullStack",
     "important": true,
-    "id":4
+    "id": 55645
+
 }
 

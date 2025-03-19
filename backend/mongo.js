@@ -7,7 +7,7 @@ if(process.argv.length < 3){
 
 const password = process.argv[2]
 
-const url= `mongodb+srv://marcusbrudev:${password}@cluster0.0pdmn.mongodb.net/noteApp?retryWrites=true&w=majority&appName=Cluster0`
+const url= `mongodb+srv://marcusbrudev:${password}@cluster0.0pdmn.mongodb.net/testNoteApp?retryWrites=true&w=majority&appName=Cluster0`
 
 
 
@@ -24,7 +24,7 @@ const noteSchema = new mongoose.Schema({
 const Note= mongoose.model('Note',noteSchema)
 
 const note = new Note({
-    content:  'Soy capaz de aprender cualquier cosa 1',
+    content:  'Pude, puedo y prodre.. de la mano de Dios',
     important: true,
 })
 
@@ -36,8 +36,8 @@ Note.find({}).then(result=>{
 })
 
 
-/*note.save().then(result=>{
+note.save().then(result=>{
     console.log('note saved!')
     mongoose.connection.close()
-})*/
+})
 

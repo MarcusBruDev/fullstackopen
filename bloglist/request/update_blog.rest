@@ -1,0 +1,9 @@
+PUT  http://localhost:3001/api/blogs/67da25df37890e3db23714e6
+Content-Type: application/json
+
+{
+    "title": "Soy el mejor programador del mundo mundial DIos me lo permitio",  
+    "author": "Marcus Bru Diaz",
+    "url": "www.prueba.com",
+    "likes": 1111
+}

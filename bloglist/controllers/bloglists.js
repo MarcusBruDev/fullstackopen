@@ -1,32 +1,132 @@
 const blogListRouter = require('express').Router()
+
 const Bloglist = require('../models/bloglist')
+const UserBlogList = require('../models/user')
+const mongoose = require('mongoose');
+
+const middleware = require('../utils/middleware');
 
 
-blogListRouter.post('/',(request,response)=>{
+
+blogListRouter.post('/', middleware.userExtractor,async (request,response)=>{
     const body = request.body
+    const userToken= request.user
 
-    const blog = new Bloglist({
-        title: body.title,
+
+    if(!userToken.id){
+        console.log("token invalido")
+        return response.status(401).json({error:'token invalidss'})
+    }
+
+
+
+    
+    if (mongoose.Types.ObjectId.isValid(userToken.id)) {
+
+        const user= await UserBlogList.findById(userToken.id)
+   
+
+        const blog = new Bloglist({
+            title: body.title,
+            author: body.author,
+            url: body.url,
+            likes: body.likes,
+            user: body.user
+        })
+    
+    
+    
+        
+        const savedBlog = await blog.save();
+       
+      
+        user.blogs = user.blogs.concat(savedBlog.id)
+        await user.save()
+        
+    
+    
+    
+        if(savedBlog){
+            
+            response.status(201).json(savedBlog)
+        }else{
+            response.status(400).end()
+        }
+
+
+
+
+    } else {
+        console.log('El ID no es válido');
+    }
+    
+   
+
+
+})
+
+
+
+blogListRouter.get('/',async (request,response)=>{
+    
+  
+  const blogs= await  Bloglist.find({}).populate('user',{username:1,name:1})
+  console.log("entro")
+  response.json(blogs)
+
+})
+
+
+blogListRouter.get('/:id',(request,response,next)=>{
+    
+
+    Bloglist.findById(request.params.id)
+    .then(result=>{
+        response.json(result)
+    })
+})
+
+
+
+
+
+blogListRouter.delete('/:id',middleware.userExtractor,async (request,response)=>{
+    let idTodelete = request.params.id
+
+    let result= await Bloglist.findById(idTodelete) 
+   
+    const user= request.user
+
+
+
+    if(result.user.toString() === user.id.toString()){
+        await Bloglist.deleteOne({_id:idTodelete})
+        response.status(204).end()
+    }else{
+        response.status(401).json({error:'token invalidss'})
+    }
+
+
+})
+
+
+blogListRouter.put('/:id',async (request,response)=>{
+    const body= request.body
+    
+    
+
+
+    const blog={
+        title: body.title,  
         author: body.author,
         url: body.url,
         likes: body.likes
-    })
+    }
 
-
-    blog.save().then(savedBlog=>{
-        response.json(savedBlog)    
-    })
-    .catch(error=>{
-        console.log(error)
-    })
-
+    let updateBlog= await  Bloglist.findByIdAndUpdate(request.params.id,blog,{new:true})
+    response.json(updateBlog)
+    
 })
 
-
-blogListRouter.get('/',(request,response)=>{
-    Bloglist.find({}).then(blogs=>{
-        response.json(blogs)
-    })
-})
 
 module.exports = blogListRouter
