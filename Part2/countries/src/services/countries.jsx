@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const  getAll=(searchedCity)=>{
+const  getAll=()=>{
        // const baseUrl= `https://studies.cs.helsinki.fi/restcountries/api/name/${searchedCity}`
         const baseUrl= `https://studies.cs.helsinki.fi/restcountries/api/all`
         
