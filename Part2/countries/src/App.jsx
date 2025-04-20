@@ -11,7 +11,6 @@ function App() {
   const[searchedCity,setSearchedCity] = useState('')
   const api_key = import.meta.env.VITE_SOME_KEY
   
-  console.log(api_key)
 
   
   const countrieToShow =  searchedCity ? countriesState.filter((element)=>element.name.common.toLocaleLowerCase().includes(searchedCity.toLocaleLowerCase())) : []

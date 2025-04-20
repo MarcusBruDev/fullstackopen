@@ -3,6 +3,18 @@ const jwt = require('jsonwebtoken')
 
 
 
+const getTokenFrom = request=>{
+   
+    const authorization = request.get('authorization')
+   
+    if(authorization && authorization.startsWith('bearer ')){
+        return authorization.replace('bearer ','')
+
+    }
+
+    return null
+}
+
 const unknownEndpoint =(request,response,next)=>{
     
     response.status(404).send({error:'unkound endpoint'})
@@ -19,7 +31,7 @@ const tokenExtractor = (request,response,next)=>{
     }
 
     // Eliminar el prefijo 'Bearer ' del token si está presente
-  const tokenSinBearer = token.replace('Bearer ', '');
+  const tokenSinBearer = token.replace('bearer ', '');
    
   request.token = tokenSinBearer
   next()
@@ -40,22 +52,24 @@ const errorHandler = (error,request,response,next)=>{
 
 
 const userExtractor = (request,response,next)=>{
-    const token = request.header('Authorization');
+
+    const token = getTokenFrom(request)
+
     
     if(!token){
         return response.status(401).json({error:'Acceso denegado'})
     }
 
-    const tokenSinBearer = token.replace('Bearer ', '');
+
     
-    const decodedToken = jwt.verify(tokenSinBearer, process.env.SECRET)
+    const decodedToken = jwt.verify(token, process.env.SECRET)
     
     if(!token || !decodedToken.id){
         return response.status(401).json({error:'token invalid'})
     }
     
     request.user = decodedToken
-   // console.log("usuario :", request.user)
+ 
 
     next()
     

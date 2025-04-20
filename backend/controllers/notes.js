@@ -1,4 +1,5 @@
 const notesRouter = require('express').Router()
+
 const jwt = require('jsonwebtoken')
 
 
@@ -8,8 +9,9 @@ const User = require('../models/user')
 
 
 const getTokenFrom = request=>{
+   
     const authorization = request.get('authorization')
-
+    
     if(authorization && authorization.startsWith('Bearer ')){
         return authorization.replace('Bearer ','')
 
@@ -44,9 +46,10 @@ notesRouter.get('/:id', async (request,response,next)=>{
 notesRouter.post('/', async (request,response,next)=>{
     
     const body = request.body
+    // console.log('Data del body',body)
     // objeto decodificado tiene el cambo userName y id
     const decodedToken = jwt.verify(getTokenFrom(request),process.env.SECRET)
-
+    
     if(!decodedToken.id){
         return response.status(401).json({error: 'token invalid'})
     }

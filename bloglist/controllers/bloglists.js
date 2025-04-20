@@ -8,13 +8,14 @@ const middleware = require('../utils/middleware');
 
 
 
-blogListRouter.post('/', middleware.userExtractor,async (request,response)=>{
+blogListRouter.post('/', middleware.userExtractor ,async (request,response)=>{
     const body = request.body
     const userToken= request.user
 
 
+
     if(!userToken.id){
-        console.log("token invalido")
+       
         return response.status(401).json({error:'token invalidss'})
     }
 
@@ -71,7 +72,6 @@ blogListRouter.get('/',async (request,response)=>{
     
   
   const blogs= await  Bloglist.find({}).populate('user',{username:1,name:1})
-  console.log("entro")
   response.json(blogs)
 
 })
@@ -87,7 +87,13 @@ blogListRouter.get('/:id',(request,response,next)=>{
 })
 
 
+//Para borrar todos los blogs de la base de datos sin TOKEN
+blogListRouter.delete('/',async (request,response)=>{
 
+    await Bloglist.deleteMany({})
+    response.status(204).end()
+
+})
 
 
 blogListRouter.delete('/:id',middleware.userExtractor,async (request,response)=>{
@@ -99,7 +105,7 @@ blogListRouter.delete('/:id',middleware.userExtractor,async (request,response)=>
     const user= request.user
 
 
-
+    
     if(result.user.toString() === user.id.toString()){
         await Bloglist.deleteOne({_id:idTodelete})
         response.status(204).end()
