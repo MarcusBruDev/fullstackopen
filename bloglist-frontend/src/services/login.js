@@ -3,11 +3,6 @@ const baseUrl = "/api/login";
 
 
 
-let token = null
-
-const setToken= newToken=>{
-    token=`bearer ${newToken}`
-}
 
 
 
