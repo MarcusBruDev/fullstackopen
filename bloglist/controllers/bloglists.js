@@ -32,10 +32,10 @@ blogListRouter.post('/', middleware.userExtractor ,async (request,response)=>{
             author: body.author,
             url: body.url,
             likes: body.likes,
-            user: body.user
-        })
+            user: user._id
+        })  
     
-    
+        
     
         
         const savedBlog = await blog.save();
@@ -77,9 +77,11 @@ blogListRouter.get('/',async (request,response)=>{
 })
 
 
+
+
+
 blogListRouter.get('/:id',(request,response,next)=>{
     
-
     Bloglist.findById(request.params.id)
     .then(result=>{
         response.json(result)
@@ -117,21 +119,47 @@ blogListRouter.delete('/:id',middleware.userExtractor,async (request,response)=>
 })
 
 
-blogListRouter.put('/:id',async (request,response)=>{
+blogListRouter.put('/:id', middleware.userExtractor ,async (request,response)=>{
     const body= request.body
+    const userToken= request.user
     
-    
-
-
-    const blog={
-        title: body.title,  
-        author: body.author,
-        url: body.url,
-        likes: body.likes
+    if(!userToken.id){
+        return response.status(401).json({error:'token invalidss'})
     }
 
-    let updateBlog= await  Bloglist.findByIdAndUpdate(request.params.id,blog,{new:true})
-    response.json(updateBlog)
+
+    if (mongoose.Types.ObjectId.isValid(userToken.id)) {
+
+        const user= await UserBlogList.findById(userToken.id)
+        console.log(user.id)
+
+
+        const blog={
+            title: body.title,  
+            author: body.author,
+            url: body.url,
+            likes: body.likes
+        }
+
+        
+
+
+        let updateBlog= await  Bloglist.findByIdAndUpdate(request.params.id,blog,{new:true})
+
+
+        user.blogslikes = user.blogslikes.concat(updateBlog.id)
+        
+        await user.save()
+        response.json(updateBlog)
+
+    }
+    else {
+        console.log('El ID no es válido');
+    }
+
+
+
+  
     
 })
 
