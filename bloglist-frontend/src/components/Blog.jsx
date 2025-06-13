@@ -13,10 +13,6 @@ const Blog = ({ blog ,toggleLike,username,handleRemove,userBd}) => {
     setVisibleAllTheDetails(!visibleAllTheDetails)
   }
 
-
-  console.log("username ",username)
-  console.log("userBd ",userBd)
-  
   const blogStyle = {
     paddingTop: 10,
     paddingLeft: 2,
@@ -44,12 +40,11 @@ const Blog = ({ blog ,toggleLike,username,handleRemove,userBd}) => {
       
       <div style={showWhenVisible}>
           <div  className="blog-details" style={blogStyle}>
-            
-            {blog.url} <button className="hide-button" onClick={toggleVisibility}>hide</button><br />
-            {blog.likes} <button className="like-button" onClick={toggleLike}>like</button><br />
-            {blog.author}   <br />
+            {blog.url ? <div  className="url">{blog.url} <button className="hide-button" onClick={toggleVisibility}>hide</button></div> : null}
+            {blog.likes >=0 ? <div className="likes">{blog.likes} <button className="like-button" onClick={toggleLike}>like</button></div> : null}
+            {blog.author ? <div className="author">{blog.author}</div> : null}
             {blog.user.username === username ? <button className="cancel-button" onClick={handleRemove}>Remove</button> : null}
-            
+
           </div>
           
       </div>

@@ -12,4 +12,12 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    include: ['tests/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+    globals: true, // Enable global test APIs like `describe`, `it`, etc.
+    environment: 'jsdom',
+    setupFiles: './testSetup.js', 
+  },
 })
+
+
