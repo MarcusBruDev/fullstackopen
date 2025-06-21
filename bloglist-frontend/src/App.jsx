@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect,useRef  } from 'react'
 import Blog from './components/Blog'
 import blogService from './services/blogs'
 import loginService from './services/login'
@@ -24,7 +24,9 @@ const App = () => {
   
   
 
-  
+  const noteFormRef = useRef();
+
+
 
   useEffect(() => {
     blogService.getAll().then(blogs =>
@@ -124,12 +126,13 @@ const App = () => {
       setNewBlog({title:'',author:'',url:''})
       setSuccessMessage(`a new blog ${returnedBlog.title} by ${returnedBlog.author} added`)
 
-
+      
       console.log(blogs)
 
 
       setTimeout(() => {
         setSuccessMessage(null)
+        
       }, 5000)
 
     }catch(exception){
@@ -139,6 +142,8 @@ const App = () => {
       }, 5000)
     }
     setNewBlog({title:'',author:'',url:''})
+    noteFormRef.current.toggleVisibility() // Oculta el formulario de creación de blog después de enviar
+   
   }
 
 
@@ -231,7 +236,7 @@ const App = () => {
 
   
     const createNewBlog = () => (
-      <Togglable buttonLabel='Create new blog' >
+      <Togglable buttonLabel='Create new blog'  ref={noteFormRef}>
         <CreateNewBlog 
         title={newBlog.title}
         author={newBlog.author}
@@ -249,14 +254,14 @@ const App = () => {
 
 
   return (
-    <div>
+    <div >
      
       {errorMessage ? <Notificacion messageError={errorMessage} /> : null}
       {sussessMessage ? <Notificacion messageSussess={sussessMessage} /> : null}  
 
       {user === null
       ? loginForm()
-      : <div>
+      : <div id="container">
         
         <h1>Blogs</h1>
         
@@ -275,7 +280,7 @@ const App = () => {
         
         </div>
       
-      
+        
       
       }
       

@@ -10,14 +10,14 @@ const Notificacion = ({messageError,messageSussess})=>{
     if(messageError){
         return(
             <div className="error">
-                {messageError}
+               <span id="error">{messageError}</span> 
             </div>
         )
     }
     if(messageSussess){
         return(
             <div className="sussess">
-                {messageSussess}
+                <span id="sussess">{messageSussess}</span>
             </div>
         )
     }
