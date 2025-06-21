@@ -3,6 +3,7 @@ require('express-async-errors')
 const blogListRouter= require('./controllers/bloglists')
 const usersBlogListRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
+
 const middleware = require('./utils/middleware') 
 const app  = express()
 const config = require('./utils/config')
@@ -19,6 +20,7 @@ const mongoose = require('mongoose')
 
 mongoose.connect(config.MONGODB_URI)
 .then(result=>{
+    console.log(config.MONGODB_URI)
     logger.info('connected to MongoDB')
 })
 .catch(error=>{
@@ -40,6 +42,15 @@ app.use('/api/users',usersBlogListRouter)
 app.use('/api/login',loginRouter )
 app.use('/api/blogs/:id',middleware.userExtractor,blogListRouter )
 
+
+
+if (process.env.NODE_ENV === 'test'){
+
+  console.log('Test!!')
+  const testingRouter = require('./controllers/testing')
+ 
+  app.use('/api/testing', testingRouter)
+}
 
 
 app.use(middleware.unknownEndpoint)

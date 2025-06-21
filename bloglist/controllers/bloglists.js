@@ -25,8 +25,8 @@ blogListRouter.post('/', middleware.userExtractor ,async (request,response)=>{
     if (mongoose.Types.ObjectId.isValid(userToken.id)) {
 
         const user= await UserBlogList.findById(userToken.id)
-   
-
+        
+        console.log(user)
         const blog = new Bloglist({
             title: body.title,
             author: body.author,
