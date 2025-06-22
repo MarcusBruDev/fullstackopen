@@ -6,30 +6,22 @@ const { error } = require('../utils/logger')
 
 loginRouter.post('/', async (request,response)=>{
     const {userName , password} = request.body
-    console.log("Password!",password)
+   
 
     const user = await User.findOne({ userName })
-    console.log("User password!",user.password)
+    
     
     
     const passwordCorrect = user === null
         ? false
-        : 
-        bcrypt.compare(password, user.password)
-        .then(result=>{
-             
-            if (result) {
-                console.log("La contraseña es correcta.");
-              } else {
-                //return response.status(401).json({error: 'contraseña incorrecta'})  
-                console.log("La contraseña es incorrecta.");
-              }
-        }).catch(error=>{
-            console.error("Error al comparar las contraseñas:", error);
-        })
+        : await bcrypt.compare(password, user.password)
+      
 
-
-    
+   
+    if( !user || !passwordCorrect) {
+        
+        return response.status(401).json({error: 'usuario o contraseña incorrectos'})
+    }
 
     const userForToken ={
         userName: user.userName,

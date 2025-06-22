@@ -87,6 +87,15 @@ notesRouter.delete('/:id', async (request,response,next)=>{
 
 })
 
+notesRouter.delete('/', async (request,response,next)=>{
+
+    // aqui podemos ver la magia dek express-async-errors , se elimina los bloques de try/catch
+    await Note.deleteMany({})
+    response.status(204).end()
+
+})
+
+
 notesRouter.put('/:id',(request,response,next)=>{
         const body= request.body
 
