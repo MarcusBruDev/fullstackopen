@@ -39,7 +39,7 @@ const Blog = ({ blog ,toggleLike,username,handleRemove,userBd}) => {
             
             {blog.url ? <div  className="url"><span className="url">{blog.url}</span> <button className="hide-button" onClick={toggleVisibility}>hide</button></div> : null}
             {blog.likes >=0 ? <div className="likes">{blog.likes}</div> : null} 
-            {<span className="countLikes"></span>}
+            {<span className="countLikes"></span>}  
             {<button className="like-button" onClick={toggleLike}>like</button>}
 
             {blog.author ? <div className="author"><span className="author">{blog.author}</span></div> : null}

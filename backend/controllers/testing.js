@@ -8,8 +8,6 @@ testingRouter.post('/reset', async () => {
     await User.deleteMany({})
 
     response.status(204).end()
-
-
 })
 
 module.exports = testingRouter
