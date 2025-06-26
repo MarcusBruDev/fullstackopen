@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { vote } from "../reducers/anecdoteReducer";
 
-///hello
+///hello part6
 const Anecdote =({anecdote,handleClick})=>{
     return(
         <>
